@@ -1,0 +1,53 @@
+Master: localhost:29500  |  Nodes: 1  |  GPUs: 0,1 (2)  |  Rank: 0
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[model] 110.9M parameters
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+step=10 | loss=9.6895 | lr=6.00e-05 | tok/s=473644 | 138ms/step | elapsed 0.1m | time left 9.9m
+step=20 | loss=9.2431 | lr=1.20e-04 | tok/s=434475 | 151ms/step | elapsed 0.1m | time left 9.9m
+step=30 | loss=8.7496 | lr=1.80e-04 | tok/s=427021 | 153ms/step | elapsed 0.1m | time left 9.9m
+step=40 | loss=8.5552 | lr=2.40e-04 | tok/s=347501 | 189ms/step | elapsed 0.2m | time left 9.8m
+step=50 | loss=8.5003 | lr=3.00e-04 | tok/s=487928 | 134ms/step | elapsed 0.2m | time left 9.8m
+step=60 | loss=8.2929 | lr=3.60e-04 | tok/s=453769 | 144ms/step | elapsed 0.2m | time left 9.8m
+step=70 | loss=8.1528 | lr=4.20e-04 | tok/s=433002 | 151ms/step | elapsed 0.2m | time left 9.8m
+step=80 | loss=8.1152 | lr=4.80e-04 | tok/s=481054 | 136ms/step | elapsed 0.3m | time left 9.7m
+step=90 | loss=7.8343 | lr=5.40e-04 | tok/s=409933 | 160ms/step | elapsed 0.3m | time left 9.7m
+step=100 | loss=7.8574 | lr=6.00e-04 | tok/s=387938 | 169ms/step | elapsed 0.3m | time left 9.7m
+step=110 | loss=7.7857 | lr=6.00e-04 | tok/s=425505 | 154ms/step | elapsed 0.3m | time left 9.7m
+step=120 | loss=7.6659 | lr=6.00e-04 | tok/s=564071 | 116ms/step | elapsed 0.4m | time left 9.6m
+step=130 | loss=7.5551 | lr=6.00e-04 | tok/s=493886 | 133ms/step | elapsed 0.4m | time left 9.6m
+step=140 | loss=7.5408 | lr=6.00e-04 | tok/s=397491 | 165ms/step | elapsed 0.4m | time left 9.6m
+step=150 | loss=7.3859 | lr=6.00e-04 | tok/s=501521 | 131ms/step | elapsed 0.4m | time left 9.6m
+step=160 | loss=7.4533 | lr=6.00e-04 | tok/s=431358 | 152ms/step | elapsed 0.5m | time left 9.5m
+step=170 | loss=7.2964 | lr=6.00e-04 | tok/s=432476 | 152ms/step | elapsed 0.5m | time left 9.5m
+step=180 | loss=7.3496 | lr=6.00e-04 | tok/s=419706 | 156ms/step | elapsed 0.5m | time left 9.5m
+step=190 | loss=7.3084 | lr=6.00e-04 | tok/s=417784 | 157ms/step | elapsed 0.5m | time left 9.5m
+step=200 | loss=7.1755 | lr=5.99e-04 | tok/s=452705 | 145ms/step | elapsed 0.6m | time left 9.4m
+step=210 | loss=7.1515 | lr=5.99e-04 | tok/s=417202 | 157ms/step | elapsed 0.6m | time left 9.4m
+step=220 | loss=7.1923 | lr=5.99e-04 | tok/s=464691 | 141ms/step | elapsed 0.6m | time left 9.4m
+step=230 | loss=6.9684 | lr=5.99e-04 | tok/s=449360 | 146ms/step | elapsed 0.6m | time left 9.4m
+step=240 | loss=6.9987 | lr=5.99e-04 | tok/s=500007 | 131ms/step | elapsed 0.7m | time left 9.3m
+step=250 | loss=7.0648 | lr=5.99e-04 | tok/s=393935 | 166ms/step | elapsed 0.7m | time left 9.3m
+step=260 | loss=6.9402 | lr=5.99e-04 | tok/s=385611 | 170ms/step | elapsed 0.7m | time left 9.3m
+step=270 | loss=6.9813 | lr=5.98e-04 | tok/s=463375 | 141ms/step | elapsed 0.7m | time left 9.3m
+step=280 | loss=6.9228 | lr=5.98e-04 | tok/s=463174 | 141ms/step | elapsed 0.8m | time left 9.2m
+step=290 | loss=6.7592 | lr=5.98e-04 | tok/s=438634 | 149ms/step | elapsed 0.8m | time left 9.2m
+step=300 | loss=6.8129 | lr=5.98e-04 | tok/s=474276 | 138ms/step | elapsed 0.8m | time left 9.2m
+step=310 | loss=6.7773 | lr=5.98e-04 | tok/s=412305 | 159ms/step | elapsed 0.8m | time left 9.2m
+step=320 | loss=6.7813 | lr=5.97e-04 | tok/s=452762 | 145ms/step | elapsed 0.9m | time left 9.1m
+step=330 | loss=6.6461 | lr=5.97e-04 | tok/s=462578 | 142ms/step | elapsed 0.9m | time left 9.1m
+step=340 | loss=6.5818 | lr=5.97e-04 | tok/s=546262 | 120ms/step | elapsed 0.9m | time left 9.1m
+step=350 | loss=6.8102 | lr=5.97e-04 | tok/s=466192 | 141ms/step | elapsed 0.9m | time left 9.1m
+step=360 | loss=6.6154 | lr=5.96e-04 | tok/s=453890 | 144ms/step | elapsed 1.0m | time left 9.0m
+step=370 | loss=6.6598 | lr=5.96e-04 | tok/s=503900 | 130ms/step | elapsed 1.0m | time left 9.0m
+step=380 | loss=6.4599 | lr=5.96e-04 | tok/s=441665 | 148ms/step | elapsed 1.0m | time left 9.0m
+step=390 | loss=6.4290 | lr=5.95e-04 | tok/s=438587 | 149ms/step | elapsed 1.0m | time left 9.0m
+step=400 | loss=6.4405 | lr=5.95e-04 | tok/s=426449 | 154ms/step | elapsed 1.1m | time left 8.9m
+step=410 | loss=6.4321 | lr=5.95e-04 | tok/s=497708 | 132ms/step | elapsed 1.1m | time left 8.9m
+step=420 | loss=6.3654 | lr=5.94e-04 | tok/s=427985 | 153ms/step | elapsed 1.1m | time left 8.9m
+step=430 | loss=6.4834 | lr=5.94e-04 | tok/s=503171 | 130ms/step | elapsed 1.1m | time left 8.9m
+step=440 | loss=6.4808 | lr=5.94e-04 | tok/s=420348 | 156ms/step | elapsed 1.2m | time left 8.8m
+./run_local.sh: line 37: 407858 Killed                  python -m torch.distributed.run --nnodes="$NNODES" --nproc_per_node="$NPROC_PER_NODE" --node_rank="$NODE_RANK" --master_addr="$MASTER_ADDR" --master_port="$MASTER_PORT" train.py --data_dir /home/data/ --checkpoint_path checkpoint.pt --seq_len 1024 --batch_size 8 --grad_accum_steps 4 --max_steps 5000 --time_limit_min 10

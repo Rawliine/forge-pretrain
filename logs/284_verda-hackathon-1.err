@@ -1,0 +1,27 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-04-09T16:39:10.096] error: *** STEP 284.0 ON verda-hackathon-1 CANCELLED AT 2026-04-09T16:39:10 DUE to SIGNAL Terminated ***
+[2026-04-09T16:39:10.096] error: *** JOB 284 ON verda-hackathon-1 CANCELLED AT 2026-04-09T16:39:10 DUE to SIGNAL Terminated ***
+W0409 16:39:10.096000 547351 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0409 16:39:10.096000 432429 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0409 16:39:10.098000 547351 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 547463 closing signal SIGTERM
+W0409 16:39:10.095000 6459 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0409 16:39:10.098000 432429 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 432547 closing signal SIGTERM
+W0409 16:39:10.098000 547351 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 547464 closing signal SIGTERM
+W0409 16:39:10.097000 6459 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 6566 closing signal SIGTERM
+W0409 16:39:10.098000 595678 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers

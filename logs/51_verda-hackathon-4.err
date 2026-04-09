@@ -1,0 +1,17 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-04-09T09:00:13.933] error: *** STEP 51.0 ON verda-hackathon-4 CANCELLED AT 2026-04-09T09:00:13 DUE to SIGNAL Terminated ***
+[2026-04-09T09:00:13.933] error: *** JOB 51 ON verda-hackathon-4 CANCELLED AT 2026-04-09T09:00:13 DUE to SIGNAL Terminated ***
+W0409 09:00:13.933000 292954 .venv/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0409 09:00:13.934000 292954 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 293132 closing signal SIGTERM
+W0409 09:00:13.934000 292954 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 293133 closing signal SIGTERM
+W0409 09:00:13.935000 292954 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 293134 closing signal SIGTERM
+W0409 09:00:13.932000 289701 .venv/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0409 09:00:13.936000 292954 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 293135 closing signal SIGTERM

@@ -1,0 +1,8 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-04-09T08:41:43.859] error: *** STEP 42.0 ON verda-hackathon-1 CANCELLED AT 2026-04-09T08:41:43 DUE to SIGNAL Terminated ***
+[2026-04-09T08:41:43.860] error: *** JOB 42 ON verda-hackathon-1 CANCELLED AT 2026-04-09T08:41:43 DUE to SIGNAL Terminated ***
+W0409 08:41:43.860000 293016 .venv/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers

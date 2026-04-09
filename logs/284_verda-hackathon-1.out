@@ -1,0 +1,139 @@
+Master: verda-hackathon-1:29500  |  Nodes: 4  |  GPUs/node: 8
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+
+
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+step=10 | loss=10.0771 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=4210660 | 249ms/step | elapsed 0.1m | time left 9.9m
+step=20 | loss=9.4582 | lr(muon)=4.00e-03 lr(adam)=6.00e-05 | tok/s=4457410 | 235ms/step | elapsed 0.1m | time left 9.9m
+step=30 | loss=9.0637 | lr(muon)=6.00e-03 lr(adam)=9.00e-05 | tok/s=4814316 | 218ms/step | elapsed 0.2m | time left 9.8m
+step=40 | loss=8.4885 | lr(muon)=8.00e-03 lr(adam)=1.20e-04 | tok/s=4870726 | 215ms/step | elapsed 0.2m | time left 9.8m
+step=50 | loss=8.2381 | lr(muon)=1.00e-02 lr(adam)=1.50e-04 | tok/s=5399695 | 194ms/step | elapsed 0.2m | time left 9.8m
+step=60 | loss=7.7709 | lr(muon)=1.20e-02 lr(adam)=1.80e-04 | tok/s=5204875 | 201ms/step | elapsed 0.3m | time left 9.7m
+step=70 | loss=7.6080 | lr(muon)=1.40e-02 lr(adam)=2.10e-04 | tok/s=5428018 | 193ms/step | elapsed 0.3m | time left 9.7m
+step=80 | loss=7.3081 | lr(muon)=1.60e-02 lr(adam)=2.40e-04 | tok/s=5049741 | 208ms/step | elapsed 0.4m | time left 9.6m
+step=90 | loss=7.0664 | lr(muon)=1.80e-02 lr(adam)=2.70e-04 | tok/s=2782403 | 377ms/step | elapsed 0.4m | time left 9.6m
+step=100 | loss=6.8362 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=2972989 | 353ms/step | elapsed 0.4m | time left 9.6m
+step=110 | loss=6.7632 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5504625 | 190ms/step | elapsed 0.5m | time left 9.5m
+step=120 | loss=6.6878 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5370053 | 195ms/step | elapsed 0.5m | time left 9.5m
+step=130 | loss=6.5143 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5259047 | 199ms/step | elapsed 0.5m | time left 9.5m
+step=140 | loss=6.4729 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5246788 | 200ms/step | elapsed 0.6m | time left 9.4m
+step=150 | loss=6.3531 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5546380 | 189ms/step | elapsed 0.6m | time left 9.4m
+step=160 | loss=6.3170 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5458062 | 192ms/step | elapsed 0.6m | time left 9.4m
+step=170 | loss=6.1912 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=4831149 | 217ms/step | elapsed 0.7m | time left 9.3m
+step=180 | loss=5.9039 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5370099 | 195ms/step | elapsed 0.7m | time left 9.3m
+step=190 | loss=5.8775 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5256948 | 199ms/step | elapsed 0.8m | time left 9.2m
+step=200 | loss=5.6480 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=4618749 | 227ms/step | elapsed 0.8m | time left 9.2m
+step=210 | loss=5.5964 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5117179 | 205ms/step | elapsed 0.8m | time left 9.2m
+step=220 | loss=5.4508 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=4696836 | 223ms/step | elapsed 0.9m | time left 9.1m
+step=230 | loss=5.5659 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=5308445 | 198ms/step | elapsed 0.9m | time left 9.1m
+step=240 | loss=5.4374 | lr(muon)=2.00e-02 lr(adam)=2.99e-04 | tok/s=4966491 | 211ms/step | elapsed 0.9m | time left 9.1m
+step=250 | loss=5.1112 | lr(muon)=2.00e-02 lr(adam)=2.99e-04 | tok/s=5339638 | 196ms/step | elapsed 1.0m | time left 9.0m
+step=260 | loss=5.1711 | lr(muon)=2.00e-02 lr(adam)=2.99e-04 | tok/s=2831445 | 370ms/step | elapsed 1.0m | time left 9.0m
+step=270 | loss=5.2395 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5258947 | 199ms/step | elapsed 1.0m | time left 9.0m
+step=280 | loss=5.0060 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5239543 | 200ms/step | elapsed 1.1m | time left 8.9m
+step=290 | loss=4.9271 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5342460 | 196ms/step | elapsed 1.1m | time left 8.9m
+step=300 | loss=4.8021 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5478978 | 191ms/step | elapsed 1.1m | time left 8.9m
+step=310 | loss=5.0048 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5333131 | 197ms/step | elapsed 1.2m | time left 8.8m
+step=320 | loss=4.9423 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5534188 | 189ms/step | elapsed 1.2m | time left 8.8m
+step=330 | loss=4.8021 | lr(muon)=1.99e-02 lr(adam)=2.99e-04 | tok/s=5267090 | 199ms/step | elapsed 1.2m | time left 8.8m
+step=340 | loss=4.7323 | lr(muon)=1.99e-02 lr(adam)=2.98e-04 | tok/s=5152858 | 203ms/step | elapsed 1.3m | time left 8.7m
+step=350 | loss=4.9055 | lr(muon)=1.99e-02 lr(adam)=2.98e-04 | tok/s=5444063 | 193ms/step | elapsed 1.3m | time left 8.7m
+step=360 | loss=4.7551 | lr(muon)=1.99e-02 lr(adam)=2.98e-04 | tok/s=5017926 | 209ms/step | elapsed 1.4m | time left 8.6m
+step=370 | loss=4.7527 | lr(muon)=1.99e-02 lr(adam)=2.98e-04 | tok/s=2415414 | 434ms/step | elapsed 1.4m | time left 8.6m
+step=380 | loss=4.5777 | lr(muon)=1.99e-02 lr(adam)=2.98e-04 | tok/s=1460832 | 718ms/step | elapsed 1.5m | time left 8.5m
+step=390 | loss=4.6761 | lr(muon)=1.98e-02 lr(adam)=2.98e-04 | tok/s=1533695 | 684ms/step | elapsed 1.6m | time left 8.4m
+step=400 | loss=4.6110 | lr(muon)=1.98e-02 lr(adam)=2.98e-04 | tok/s=5598720 | 187ms/step | elapsed 1.7m | time left 8.3m
+step=410 | loss=4.7517 | lr(muon)=1.98e-02 lr(adam)=2.97e-04 | tok/s=5345811 | 196ms/step | elapsed 1.7m | time left 8.3m
+step=420 | loss=4.6901 | lr(muon)=1.98e-02 lr(adam)=2.97e-04 | tok/s=4903297 | 214ms/step | elapsed 1.8m | time left 8.2m
+step=430 | loss=4.4562 | lr(muon)=1.98e-02 lr(adam)=2.97e-04 | tok/s=2697346 | 389ms/step | elapsed 1.8m | time left 8.2m
+step=440 | loss=4.5931 | lr(muon)=1.98e-02 lr(adam)=2.97e-04 | tok/s=5111707 | 205ms/step | elapsed 1.8m | time left 8.2m
+step=450 | loss=4.3721 | lr(muon)=1.98e-02 lr(adam)=2.97e-04 | tok/s=1538981 | 681ms/step | elapsed 1.9m | time left 8.1m
+step=460 | loss=4.4489 | lr(muon)=1.98e-02 lr(adam)=2.96e-04 | tok/s=4465947 | 235ms/step | elapsed 1.9m | time left 8.1m
+step=470 | loss=4.5291 | lr(muon)=1.97e-02 lr(adam)=2.96e-04 | tok/s=5432591 | 193ms/step | elapsed 2.0m | time left 8.0m
+step=480 | loss=4.5553 | lr(muon)=1.97e-02 lr(adam)=2.96e-04 | tok/s=5575002 | 188ms/step | elapsed 2.0m | time left 8.0m
+step=490 | loss=4.5233 | lr(muon)=1.97e-02 lr(adam)=2.96e-04 | tok/s=4373963 | 240ms/step | elapsed 2.1m | time left 7.9m
+step=500 | loss=4.4474 | lr(muon)=1.97e-02 lr(adam)=2.96e-04 | tok/s=5357950 | 196ms/step | elapsed 2.1m | time left 7.9m
+step=510 | loss=4.4616 | lr(muon)=1.97e-02 lr(adam)=2.95e-04 | tok/s=3742563 | 280ms/step | elapsed 2.1m | time left 7.9m
+step=520 | loss=4.4680 | lr(muon)=1.97e-02 lr(adam)=2.95e-04 | tok/s=1504398 | 697ms/step | elapsed 2.2m | time left 7.8m
+step=530 | loss=4.4888 | lr(muon)=1.97e-02 lr(adam)=2.95e-04 | tok/s=1564203 | 670ms/step | elapsed 2.3m | time left 7.7m
+step=540 | loss=4.3023 | lr(muon)=1.96e-02 lr(adam)=2.95e-04 | tok/s=3056946 | 343ms/step | elapsed 2.3m | time left 7.7m
+step=550 | loss=4.4182 | lr(muon)=1.96e-02 lr(adam)=2.94e-04 | tok/s=5013687 | 209ms/step | elapsed 2.4m | time left 7.6m
+step=560 | loss=4.2383 | lr(muon)=1.96e-02 lr(adam)=2.94e-04 | tok/s=5525066 | 190ms/step | elapsed 2.5m | time left 7.5m
+step=570 | loss=4.4209 | lr(muon)=1.96e-02 lr(adam)=2.94e-04 | tok/s=5320080 | 197ms/step | elapsed 2.5m | time left 7.5m
+step=580 | loss=4.3524 | lr(muon)=1.96e-02 lr(adam)=2.94e-04 | tok/s=5157541 | 203ms/step | elapsed 2.6m | time left 7.4m
+step=590 | loss=4.1784 | lr(muon)=1.96e-02 lr(adam)=2.93e-04 | tok/s=1424303 | 736ms/step | elapsed 2.7m | time left 7.3m
+step=600 | loss=4.3641 | lr(muon)=1.95e-02 lr(adam)=2.93e-04 | tok/s=1267453 | 827ms/step | elapsed 2.8m | time left 7.2m
+step=610 | loss=4.1797 | lr(muon)=1.95e-02 lr(adam)=2.93e-04 | tok/s=1402457 | 748ms/step | elapsed 2.8m | time left 7.2m
+step=620 | loss=4.4215 | lr(muon)=1.95e-02 lr(adam)=2.93e-04 | tok/s=1437430 | 729ms/step | elapsed 2.9m | time left 7.1m
+step=630 | loss=4.3376 | lr(muon)=1.95e-02 lr(adam)=2.92e-04 | tok/s=5568381 | 188ms/step | elapsed 3.0m | time left 7.0m
+step=640 | loss=4.2077 | lr(muon)=1.95e-02 lr(adam)=2.92e-04 | tok/s=5560187 | 189ms/step | elapsed 3.0m | time left 7.0m
+step=650 | loss=4.2305 | lr(muon)=1.94e-02 lr(adam)=2.92e-04 | tok/s=2519742 | 416ms/step | elapsed 3.1m | time left 6.9m
+step=660 | loss=4.0531 | lr(muon)=1.94e-02 lr(adam)=2.91e-04 | tok/s=1821026 | 576ms/step | elapsed 3.2m | time left 6.8m
+step=670 | loss=4.0467 | lr(muon)=1.94e-02 lr(adam)=2.91e-04 | tok/s=3619607 | 290ms/step | elapsed 3.3m | time left 6.7m
+step=680 | loss=4.2411 | lr(muon)=1.94e-02 lr(adam)=2.91e-04 | tok/s=4503224 | 233ms/step | elapsed 3.3m | time left 6.7m
+step=690 | loss=4.0993 | lr(muon)=1.94e-02 lr(adam)=2.90e-04 | tok/s=1427121 | 735ms/step | elapsed 3.4m | time left 6.6m
+step=700 | loss=4.1688 | lr(muon)=1.93e-02 lr(adam)=2.90e-04 | tok/s=5193228 | 202ms/step | elapsed 3.5m | time left 6.5m
+step=710 | loss=4.2006 | lr(muon)=1.93e-02 lr(adam)=2.90e-04 | tok/s=5443396 | 193ms/step | elapsed 3.5m | time left 6.5m
+step=720 | loss=4.1223 | lr(muon)=1.93e-02 lr(adam)=2.89e-04 | tok/s=3654717 | 287ms/step | elapsed 3.6m | time left 6.4m
+step=730 | loss=4.2570 | lr(muon)=1.93e-02 lr(adam)=2.89e-04 | tok/s=1474914 | 711ms/step | elapsed 3.7m | time left 6.3m
+step=740 | loss=4.1197 | lr(muon)=1.93e-02 lr(adam)=2.89e-04 | tok/s=2528014 | 415ms/step | elapsed 3.7m | time left 6.3m
+step=750 | loss=4.1975 | lr(muon)=1.92e-02 lr(adam)=2.88e-04 | tok/s=5030737 | 208ms/step | elapsed 3.8m | time left 6.2m
+step=760 | loss=4.0413 | lr(muon)=1.92e-02 lr(adam)=2.88e-04 | tok/s=5806661 | 181ms/step | elapsed 3.9m | time left 6.1m
+step=770 | loss=4.1356 | lr(muon)=1.92e-02 lr(adam)=2.88e-04 | tok/s=5714094 | 184ms/step | elapsed 4.0m | time left 6.0m
+step=780 | loss=4.1022 | lr(muon)=1.92e-02 lr(adam)=2.87e-04 | tok/s=2322427 | 452ms/step | elapsed 4.0m | time left 6.0m
+step=790 | loss=4.0582 | lr(muon)=1.91e-02 lr(adam)=2.87e-04 | tok/s=4563534 | 230ms/step | elapsed 4.1m | time left 5.9m
+step=800 | loss=4.0861 | lr(muon)=1.91e-02 lr(adam)=2.87e-04 | tok/s=1561958 | 671ms/step | elapsed 4.2m | time left 5.8m
+step=810 | loss=4.2671 | lr(muon)=1.91e-02 lr(adam)=2.86e-04 | tok/s=1906796 | 550ms/step | elapsed 4.2m | time left 5.8m
+step=820 | loss=4.1183 | lr(muon)=1.91e-02 lr(adam)=2.86e-04 | tok/s=5561459 | 189ms/step | elapsed 4.3m | time left 5.7m
+step=830 | loss=4.1922 | lr(muon)=1.90e-02 lr(adam)=2.85e-04 | tok/s=6049924 | 173ms/step | elapsed 4.3m | time left 5.7m
+step=840 | loss=3.9832 | lr(muon)=1.90e-02 lr(adam)=2.85e-04 | tok/s=3070220 | 342ms/step | elapsed 4.4m | time left 5.6m
+step=850 | loss=4.0646 | lr(muon)=1.90e-02 lr(adam)=2.85e-04 | tok/s=5805182 | 181ms/step | elapsed 4.4m | time left 5.6m
+step=860 | loss=4.2628 | lr(muon)=1.90e-02 lr(adam)=2.84e-04 | tok/s=5771086 | 182ms/step | elapsed 4.4m | time left 5.6m
+step=870 | loss=4.2507 | lr(muon)=1.89e-02 lr(adam)=2.84e-04 | tok/s=5858875 | 179ms/step | elapsed 4.5m | time left 5.5m
+step=880 | loss=4.0241 | lr(muon)=1.89e-02 lr(adam)=2.83e-04 | tok/s=5900812 | 178ms/step | elapsed 4.5m | time left 5.5m
+step=890 | loss=4.0979 | lr(muon)=1.89e-02 lr(adam)=2.83e-04 | tok/s=5393874 | 194ms/step | elapsed 4.5m | time left 5.5m
+step=900 | loss=4.1667 | lr(muon)=1.88e-02 lr(adam)=2.83e-04 | tok/s=5914254 | 177ms/step | elapsed 4.6m | time left 5.4m
+step=910 | loss=4.1476 | lr(muon)=1.88e-02 lr(adam)=2.82e-04 | tok/s=6011003 | 174ms/step | elapsed 4.6m | time left 5.4m
+step=920 | loss=3.9475 | lr(muon)=1.88e-02 lr(adam)=2.82e-04 | tok/s=5111185 | 205ms/step | elapsed 4.6m | time left 5.4m
+step=930 | loss=4.0982 | lr(muon)=1.88e-02 lr(adam)=2.81e-04 | tok/s=5648892 | 186ms/step | elapsed 4.6m | time left 5.4m
+step=940 | loss=4.1323 | lr(muon)=1.87e-02 lr(adam)=2.81e-04 | tok/s=5337435 | 196ms/step | elapsed 4.7m | time left 5.3m
+step=950 | loss=4.1649 | lr(muon)=1.87e-02 lr(adam)=2.80e-04 | tok/s=6161593 | 170ms/step | elapsed 4.7m | time left 5.3m
+step=960 | loss=4.0382 | lr(muon)=1.87e-02 lr(adam)=2.80e-04 | tok/s=3124534 | 336ms/step | elapsed 4.8m | time left 5.2m
+step=970 | loss=4.0655 | lr(muon)=1.86e-02 lr(adam)=2.80e-04 | tok/s=5715148 | 183ms/step | elapsed 4.8m | time left 5.2m
+step=980 | loss=3.9365 | lr(muon)=1.86e-02 lr(adam)=2.79e-04 | tok/s=5376835 | 195ms/step | elapsed 4.8m | time left 5.2m
+step=990 | loss=4.0775 | lr(muon)=1.86e-02 lr(adam)=2.79e-04 | tok/s=5954709 | 176ms/step | elapsed 4.8m | time left 5.2m
+step=1000 | loss=3.9492 | lr(muon)=1.85e-02 lr(adam)=2.78e-04 | tok/s=2837783 | 370ms/step | elapsed 4.9m | time left 5.1m
+step=1010 | loss=4.1198 | lr(muon)=1.85e-02 lr(adam)=2.78e-04 | tok/s=6240807 | 168ms/step | elapsed 4.9m | time left 5.1m
+step=1020 | loss=4.0177 | lr(muon)=1.85e-02 lr(adam)=2.77e-04 | tok/s=5858937 | 179ms/step | elapsed 4.9m | time left 5.1m
+step=1030 | loss=4.0889 | lr(muon)=1.84e-02 lr(adam)=2.77e-04 | tok/s=5401473 | 194ms/step | elapsed 5.0m | time left 5.0m
+step=1040 | loss=3.9584 | lr(muon)=1.84e-02 lr(adam)=2.76e-04 | tok/s=5638268 | 186ms/step | elapsed 5.0m | time left 5.0m

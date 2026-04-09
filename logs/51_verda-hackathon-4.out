@@ -1,0 +1,25 @@
+Master: verda-hackathon-4:29500  |  Nodes: 2  |  GPUs/node: 4
+[model] 110.9M parameters
+[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total[data] 49 shard(s), 49,000,000,000 tokens total
+
+
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+step     10 | loss 9.6658 | lr 6.00e-05 | 232ms/step | elapsed 0.1m | time left 9.9m
+step     20 | loss 9.2247 | lr 1.20e-04 | 226ms/step | elapsed 0.1m | time left 9.9m
+step     30 | loss 8.6978 | lr 1.80e-04 | 206ms/step | elapsed 0.1m | time left 9.9m
+step     40 | loss 8.5328 | lr 2.40e-04 | 212ms/step | elapsed 0.2m | time left 9.8m
+step     50 | loss 8.4144 | lr 3.00e-04 | 191ms/step | elapsed 0.2m | time left 9.8m
+step     60 | loss 8.1800 | lr 3.60e-04 | 187ms/step | elapsed 0.2m | time left 9.8m
+step     70 | loss 7.9856 | lr 4.20e-04 | 179ms/step | elapsed 0.3m | time left 9.7m
+step     80 | loss 7.8174 | lr 4.80e-04 | 170ms/step | elapsed 0.3m | time left 9.7m
+step     90 | loss 7.7419 | lr 5.40e-04 | 174ms/step | elapsed 0.3m | time left 9.7m
+step    100 | loss 7.5298 | lr 6.00e-04 | 177ms/step | elapsed 0.4m | time left 9.6m
+step    110 | loss 7.5069 | lr 6.00e-04 | 171ms/step | elapsed 0.4m | time left 9.6m
+step    120 | loss 7.4357 | lr 6.00e-04 | 165ms/step | elapsed 0.4m | time left 9.6m
+step    130 | loss 7.3688 | lr 6.00e-04 | 175ms/step | elapsed 0.4m | time left 9.6m
+step    140 | loss 7.1455 | lr 6.00e-04 | 167ms/step | elapsed 0.5m | time left 9.5m
+step    150 | loss 7.1872 | lr 6.00e-04 | 163ms/step | elapsed 0.5m | time left 9.5m

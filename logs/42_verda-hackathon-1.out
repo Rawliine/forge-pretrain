@@ -1,0 +1,66 @@
+Master: verda-hackathon-1:29500  |  Nodes: 1  |  GPUs/node: 4
+[model] 110.9M parameters
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+[data] 49 shard(s), 49,000,000,000 tokens total
+step     10 | loss 9.7194 | lr 6.00e-05 | 208ms/step | elapsed 0.3m | time left 9.7m
+step     20 | loss 9.2046 | lr 1.20e-04 | 192ms/step | elapsed 0.4m | time left 9.6m
+step     30 | loss 8.6707 | lr 1.80e-04 | 177ms/step | elapsed 0.4m | time left 9.6m
+step     40 | loss 8.5354 | lr 2.40e-04 | 195ms/step | elapsed 0.4m | time left 9.6m
+step     50 | loss 8.3434 | lr 3.00e-04 | 193ms/step | elapsed 0.5m | time left 9.5m
+step     60 | loss 8.2443 | lr 3.60e-04 | 193ms/step | elapsed 0.5m | time left 9.5m
+step     70 | loss 8.0799 | lr 4.20e-04 | 148ms/step | elapsed 0.5m | time left 9.5m
+step     80 | loss 7.9637 | lr 4.80e-04 | 193ms/step | elapsed 0.5m | time left 9.5m
+step     90 | loss 7.7730 | lr 5.40e-04 | 170ms/step | elapsed 0.6m | time left 9.4m
+step    100 | loss 7.6822 | lr 6.00e-04 | 165ms/step | elapsed 0.6m | time left 9.4m
+step    110 | loss 7.5482 | lr 6.00e-04 | 156ms/step | elapsed 0.6m | time left 9.4m
+step    120 | loss 7.5152 | lr 6.00e-04 | 175ms/step | elapsed 0.7m | time left 9.3m
+step    130 | loss 7.4111 | lr 6.00e-04 | 178ms/step | elapsed 0.7m | time left 9.3m
+step    140 | loss 7.2841 | lr 6.00e-04 | 178ms/step | elapsed 0.7m | time left 9.3m
+step    150 | loss 7.2322 | lr 6.00e-04 | 157ms/step | elapsed 0.7m | time left 9.3m
+step    160 | loss 7.2500 | lr 6.00e-04 | 159ms/step | elapsed 0.8m | time left 9.2m
+step    170 | loss 7.1114 | lr 6.00e-04 | 169ms/step | elapsed 0.8m | time left 9.2m
+step    180 | loss 6.9656 | lr 6.00e-04 | 164ms/step | elapsed 0.8m | time left 9.2m
+step    190 | loss 7.0365 | lr 6.00e-04 | 173ms/step | elapsed 0.9m | time left 9.1m
+step    200 | loss 7.0662 | lr 5.99e-04 | 167ms/step | elapsed 0.9m | time left 9.1m
+step    210 | loss 6.8955 | lr 5.99e-04 | 172ms/step | elapsed 0.9m | time left 9.1m
+step    220 | loss 6.9422 | lr 5.99e-04 | 168ms/step | elapsed 0.9m | time left 9.1m
+step    230 | loss 6.8568 | lr 5.99e-04 | 177ms/step | elapsed 1.0m | time left 9.0m
+step    240 | loss 6.8403 | lr 5.99e-04 | 172ms/step | elapsed 1.0m | time left 9.0m
+step    250 | loss 6.7478 | lr 5.99e-04 | 175ms/step | elapsed 1.0m | time left 9.0m
+step    260 | loss 6.5774 | lr 5.99e-04 | 187ms/step | elapsed 1.1m | time left 8.9m
+step    270 | loss 6.5398 | lr 5.98e-04 | 174ms/step | elapsed 1.1m | time left 8.9m
+step    280 | loss 6.6942 | lr 5.98e-04 | 174ms/step | elapsed 1.1m | time left 8.9m
+step    290 | loss 6.6834 | lr 5.98e-04 | 180ms/step | elapsed 1.1m | time left 8.9m
+step    300 | loss 6.5878 | lr 5.98e-04 | 160ms/step | elapsed 1.2m | time left 8.8m
+step    310 | loss 6.4790 | lr 5.98e-04 | 146ms/step | elapsed 1.2m | time left 8.8m
+step    320 | loss 6.4644 | lr 5.97e-04 | 159ms/step | elapsed 1.2m | time left 8.8m
+step    330 | loss 6.3625 | lr 5.97e-04 | 183ms/step | elapsed 1.3m | time left 8.7m
+step    340 | loss 6.4225 | lr 5.97e-04 | 167ms/step | elapsed 1.3m | time left 8.7m
+step    350 | loss 6.4044 | lr 5.97e-04 | 171ms/step | elapsed 1.3m | time left 8.7m
+step    360 | loss 6.2536 | lr 5.96e-04 | 174ms/step | elapsed 1.3m | time left 8.7m
+step    370 | loss 6.0769 | lr 5.96e-04 | 173ms/step | elapsed 1.4m | time left 8.6m
+step    380 | loss 6.1157 | lr 5.96e-04 | 157ms/step | elapsed 1.4m | time left 8.6m
+step    390 | loss 6.2294 | lr 5.95e-04 | 159ms/step | elapsed 1.4m | time left 8.6m
+step    400 | loss 6.1049 | lr 5.95e-04 | 151ms/step | elapsed 1.5m | time left 8.5m
+step    410 | loss 6.0966 | lr 5.95e-04 | 168ms/step | elapsed 1.5m | time left 8.5m
+step    420 | loss 5.9409 | lr 5.94e-04 | 160ms/step | elapsed 1.5m | time left 8.5m
+step    430 | loss 5.9556 | lr 5.94e-04 | 164ms/step | elapsed 1.5m | time left 8.5m
+step    440 | loss 5.8489 | lr 5.94e-04 | 158ms/step | elapsed 1.6m | time left 8.4m
+step    450 | loss 5.9145 | lr 5.93e-04 | 179ms/step | elapsed 1.6m | time left 8.4m
+step    460 | loss 5.9417 | lr 5.93e-04 | 161ms/step | elapsed 1.6m | time left 8.4m
+step    470 | loss 5.9181 | lr 5.92e-04 | 187ms/step | elapsed 1.6m | time left 8.4m
+step    480 | loss 5.9759 | lr 5.92e-04 | 156ms/step | elapsed 1.7m | time left 8.3m
+step    490 | loss 5.7696 | lr 5.92e-04 | 163ms/step | elapsed 1.7m | time left 8.3m
+step    500 | loss 5.7515 | lr 5.91e-04 | 175ms/step | elapsed 1.7m | time left 8.3m
+step    510 | loss 5.7561 | lr 5.91e-04 | 168ms/step | elapsed 1.8m | time left 8.2m
+step    520 | loss 5.8155 | lr 5.90e-04 | 191ms/step | elapsed 1.8m | time left 8.2m
+step    530 | loss 5.7361 | lr 5.90e-04 | 149ms/step | elapsed 1.8m | time left 8.2m
+step    540 | loss 5.7523 | lr 5.89e-04 | 148ms/step | elapsed 1.8m | time left 8.2m
+step    550 | loss 5.5667 | lr 5.89e-04 | 166ms/step | elapsed 1.9m | time left 8.1m
+step    560 | loss 5.6140 | lr 5.88e-04 | 152ms/step | elapsed 1.9m | time left 8.1m
+step    570 | loss 5.4168 | lr 5.88e-04 | 147ms/step | elapsed 1.9m | time left 8.1m
+step    580 | loss 5.4960 | lr 5.87e-04 | 158ms/step | elapsed 1.9m | time left 8.1m
+step    590 | loss 5.4780 | lr 5.87e-04 | 168ms/step | elapsed 2.0m | time left 8.0m
+step    600 | loss 5.4269 | lr 5.86e-04 | 161ms/step | elapsed 2.0m | time left 8.0m
