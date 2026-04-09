@@ -41,3 +41,28 @@ dict you saved — use it to store the hyperparameters needed to reconstruct you
 `model.py`, `train.py`, and `submit.sh` are provided as a working GPT baseline — DDP, bfloat16,
 cosine schedule, and the 10-minute timer built in. **You are free to ignore them entirely**
 and bring your own stack, as long as the checkpoint contract above is respected.
+
+---
+
+## Running Experiments
+
+Use `experiment.sh` to run a named experiment, auto-evaluate the checkpoint, and log results:
+
+```bash
+./experiment.sh "baseline adamw lr3e-4"
+```
+
+This will:
+1. Run `run_local.sh` (training) and stream output to `logs/`
+2. Evaluate the resulting `checkpoint.pt` via `eval_checkpoint.py` on a held-out shard
+3. Append a row to `results.md` with steps, tok/s, train loss, val loss, perplexity, and wall time
+
+**GPU selection**:
+```bash
+GPUS=0,1,2,3 
+```
+
+**Results** are tracked in `results.md` — one row per run, auto-created on first use.
+
+### Eval comparability
+`experiment.sh` always evaluates on the same shard (`chunk_0049.bin`) with the same fixed settings (50 batches, seq_len 1024), so **all runs in `results.md` are directly comparable**. Do not override `--seq_len` or `--max_batches` when running through `experiment.sh` — it would break comparability. If you need a quick sanity check with different settings, run `eval_checkpoint.py` directly in the terminal instead.

@@ -223,14 +223,20 @@ def main():
         optimizer.step()
         optimizer.zero_grad(set_to_none=True)
 
+        step_time = time.time() - step_start
         step += 1
 
         if master and step % 10 == 0:
+            tok_per_step  = cfg.batch_size * cfg.grad_accum_steps * cfg.seq_len
+            if ddp:
+                tok_per_step *= dist.get_world_size()
+            tok_s         = tok_per_step / step_time
             elapsed_total = time.time() - train_start
             remaining     = max(0, cfg.time_limit_seconds - elapsed_total)
-            print(f"step {step:6d} | loss {accumulated_loss:.4f} | "
-                  f"lr {get_lr(step, cfg):.2e} | "
-                  f"{(time.time()-step_start)*1000:.0f}ms/step | "
+            print(f"step={step} | loss={accumulated_loss:.4f} | "
+                  f"lr={get_lr(step, cfg):.2e} | "
+                  f"tok/s={tok_s:.0f} | "
+                  f"{step_time*1000:.0f}ms/step | "
                   f"elapsed {elapsed_total/60:.1f}m | "
                   f"time left {remaining/60:.1f}m")
 
