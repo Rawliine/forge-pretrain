@@ -1,0 +1,15 @@
+# Model checkpoints
+*.pt
+*.pth
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.err
+*.out
+
+# Virtual environment
+.venv/
