@@ -6,10 +6,7 @@
 __pycache__/
 *.pyc
 
-# Logs
-logs/
-*.err
-*.out
+# Logs (tracked for experiment history)
 
 # Virtual environment
 .venv/
