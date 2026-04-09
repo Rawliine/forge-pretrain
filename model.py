@@ -25,17 +25,18 @@ class CausalSelfAttention(nn.Module):
         assert n_embd % n_head == 0
         self.n_head = n_head
         self.n_embd = n_embd
-        self.c_attn  = nn.Linear(n_embd, 3 * n_embd, bias=False)
-        self.c_proj  = nn.Linear(n_embd, n_embd,     bias=False)
+        self.c_q    = nn.Linear(n_embd, n_embd, bias=False)
+        self.c_k    = nn.Linear(n_embd, n_embd, bias=False)
+        self.c_v    = nn.Linear(n_embd, n_embd, bias=False)
+        self.c_proj = nn.Linear(n_embd, n_embd, bias=False)
         self.dropout = dropout
 
     def forward(self, x):
         B, T, C = x.shape
-        q, k, v = self.c_attn(x).split(self.n_embd, dim=2)
         hd = C // self.n_head
-        q = q.view(B, T, self.n_head, hd).transpose(1, 2)
-        k = k.view(B, T, self.n_head, hd).transpose(1, 2)
-        v = v.view(B, T, self.n_head, hd).transpose(1, 2)
+        q = self.c_q(x).view(B, T, self.n_head, hd).transpose(1, 2)
+        k = self.c_k(x).view(B, T, self.n_head, hd).transpose(1, 2)
+        v = self.c_v(x).view(B, T, self.n_head, hd).transpose(1, 2)
         y = F.scaled_dot_product_attention(q, k, v, is_causal=True,
                                            dropout_p=self.dropout if self.training else 0.0)
         y = y.transpose(1, 2).contiguous().view(B, T, C)

@@ -40,11 +40,11 @@ class Config:
     # Training
     batch_size:       int   = 8
     grad_accum_steps: int   = 4
-    max_lr:           float = 6e-4
-    min_lr:           float = 6e-5
+    muon_lr:          float = 0.02
+    adam_lr:           float = 3e-4
     warmup_steps:     int   = 100
     max_steps:        int   = 10_000
-    weight_decay:     float = 0.1
+    weight_decay:     float = 0.01
     grad_clip:        float = 1.0
     time_limit_seconds: float = 10 * 60
 
@@ -86,13 +86,14 @@ class BinDataset:
 # LR schedule: linear warmup → cosine decay → min_lr
 # ---------------------------------------------------------------------------
 
-def get_lr(step: int, cfg: Config) -> float:
+def get_lr(step: int, cfg: Config, max_lr: float) -> float:
+    min_lr = max_lr * 0.1
     if step < cfg.warmup_steps:
-        return cfg.max_lr * step / cfg.warmup_steps
+        return max_lr * step / cfg.warmup_steps
     if step >= cfg.max_steps:
-        return cfg.min_lr
+        return min_lr
     progress = (step - cfg.warmup_steps) / (cfg.max_steps - cfg.warmup_steps)
-    return cfg.min_lr + 0.5 * (1.0 + math.cos(math.pi * progress)) * (cfg.max_lr - cfg.min_lr)
+    return min_lr + 0.5 * (1.0 + math.cos(math.pi * progress)) * (max_lr - min_lr)
 
 
 # ---------------------------------------------------------------------------
@@ -169,15 +170,24 @@ def main():
         model = DDP(model, device_ids=[local_rank])
 
     # ------------------------------------------------------------------ Optimizer
-    raw_model      = model.module if ddp else model
-    decay_params   = [p for n, p in raw_model.named_parameters()
-                      if p.requires_grad and p.dim() >= 2]
-    nodecay_params = [p for n, p in raw_model.named_parameters()
-                      if p.requires_grad and p.dim() < 2]
-    optimizer = torch.optim.AdamW(
-        [{"params": decay_params,   "weight_decay": cfg.weight_decay},
-         {"params": nodecay_params, "weight_decay": 0.0}],
-        lr=cfg.max_lr, betas=(0.9, 0.95), fused="cuda" in device,
+    # Muon for 2D hidden-layer weights; AdamW for embeddings, LN, biases, lm_head
+    raw_model = model.module if ddp else model
+    hidden_weights = [p for n, p in raw_model.named_parameters()
+                      if p.requires_grad and p.ndim >= 2
+                      and 'wte' not in n and 'wpe' not in n and 'lm_head' not in n]
+    other_params   = [p for n, p in raw_model.named_parameters()
+                      if p.requires_grad
+                      and (p.ndim < 2 or 'wte' in n or 'wpe' in n or 'lm_head' in n)]
+    if master:
+        print(f"[optim] Muon: {len(hidden_weights)} params, "
+              f"AdamW: {len(other_params)} params")
+    muon_opt = torch.optim.Muon(
+        [{"params": hidden_weights}],
+        lr=cfg.muon_lr, momentum=0.95, weight_decay=cfg.weight_decay,
+    )
+    adam_opt = torch.optim.AdamW(
+        [{"params": other_params}],
+        lr=cfg.adam_lr, betas=(0.9, 0.95), weight_decay=cfg.weight_decay,
     )
 
     # ------------------------------------------------------------------ Data
@@ -187,7 +197,8 @@ def main():
     step        = 0
     train_start = time.time()
     model.train()
-    optimizer.zero_grad()
+    muon_opt.zero_grad()
+    adam_opt.zero_grad()
 
     while step < cfg.max_steps:
 
@@ -203,8 +214,10 @@ def main():
             break
 
         step_start = time.time()
-        for pg in optimizer.param_groups:
-            pg["lr"] = get_lr(step, cfg)
+        for pg in muon_opt.param_groups:
+            pg["lr"] = get_lr(step, cfg, cfg.muon_lr)
+        for pg in adam_opt.param_groups:
+            pg["lr"] = get_lr(step, cfg, cfg.adam_lr)
 
         # Gradient accumulation
         accumulated_loss = 0.0
@@ -220,8 +233,10 @@ def main():
 
         if cfg.grad_clip > 0:
             torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.grad_clip)
-        optimizer.step()
-        optimizer.zero_grad(set_to_none=True)
+        muon_opt.step()
+        adam_opt.step()
+        muon_opt.zero_grad(set_to_none=True)
+        adam_opt.zero_grad(set_to_none=True)
 
         step_time = time.time() - step_start
         step += 1
@@ -234,7 +249,8 @@ def main():
             elapsed_total = time.time() - train_start
             remaining     = max(0, cfg.time_limit_seconds - elapsed_total)
             print(f"step={step} | loss={accumulated_loss:.4f} | "
-                  f"lr={get_lr(step, cfg):.2e} | "
+                  f"lr(muon)={get_lr(step, cfg, cfg.muon_lr):.2e} "
+                  f"lr(adam)={get_lr(step, cfg, cfg.adam_lr):.2e} | "
                   f"tok/s={tok_s:.0f} | "
                   f"{step_time*1000:.0f}ms/step | "
                   f"elapsed {elapsed_total/60:.1f}m | "
