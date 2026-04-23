@@ -4,7 +4,7 @@ set -euo pipefail
 # ── Usage: ./experiment.sh "baseline adamw lr3e-4" ────────────────────────────
 RUN_NAME="${1:?Usage: ./experiment.sh <run_name>}"
 RESULTS_FILE="results.md"
-EVAL_SHARDS="${EVAL_SHARDS:-/home/data/chunk_0049.bin}"
+EVAL_SHARDS="${EVAL_SHARDS:-./data/chunk_0049.bin}"
 LOG_DIR="logs"
 mkdir -p "$LOG_DIR"
 

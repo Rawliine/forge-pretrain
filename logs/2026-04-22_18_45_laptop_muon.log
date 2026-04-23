@@ -1,0 +1,2 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+./run_local.sh: line 21: .venv/bin/activate: No such file or directory

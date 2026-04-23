@@ -32,14 +32,14 @@ class Config:
 
     # Model (passed through to get_model — add arch-specific keys in model.py)
     vocab_size: int   = 32768
-    n_layer:    int   = 24
-    n_head:     int   = 16
-    n_embd:     int   = 1024
+    n_layer:    int   = 12
+    n_head:     int   = 12
+    n_embd:     int   = 768
     dropout:    float = 0.0
 
     # Training
-    batch_size:       int   = 64
-    grad_accum_steps: int   = 1
+    batch_size:       int   = 8
+    grad_accum_steps: int   = 8
     muon_lr:          float = 0.02
     adam_lr:           float = 3e-4
     warmup_steps:     int   = 100

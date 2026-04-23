@@ -1,0 +1,46 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/root/forge-pretrain/train.py", line 269, in <module>
+[rank0]:     main()
+[rank0]:   File "/root/forge-pretrain/train.py", line 194, in main
+[rank0]:     dataset = BinDataset(cfg.data_dir, cfg.seq_len, cfg.token_dtype)
+[rank0]:   File "/root/forge-pretrain/train.py", line 65, in __init__
+[rank0]:     raise FileNotFoundError(f"No *.bin files found in '{data_dir}'")
+[rank0]: FileNotFoundError: No *.bin files found in '/home/data/'
+[rank0]:[W422 19:14:05.572989638 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E0422 19:14:06.166000 2444 site-packages/torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 2461) of binary: /root/miniconda3/envs/AIBC/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/envs/AIBC/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-22_19:14:06
+  host      : Rawline.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2461)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -18,7 +18,7 @@ NODE_RANK=${NODE_RANK:-0}
 
 echo "Master: $MASTER_ADDR:$MASTER_PORT  |  Nodes: $NNODES  |  GPUs: $CUDA_VISIBLE_DEVICES ($NPROC_PER_NODE)  |  Rank: $NODE_RANK"
 
-source .venv/bin/activate
+#source .venv/bin/activate
 
 # ── Launch torchrun directly ──────────────────────────────────────────────────
 python -m torch.distributed.run \
@@ -28,13 +28,13 @@ python -m torch.distributed.run \
     --master_addr="$MASTER_ADDR" \
     --master_port="$MASTER_PORT" \
     train.py \
-        --data_dir      /home/data/ \
+        --data_dir      ./data \
         --checkpoint_path checkpoint.pt \
         --seq_len       1024 \
-        --n_layer       24 \
-        --n_head        16 \
-        --n_embd        1024 \
-        --batch_size    32 \
-        --grad_accum_steps 2 \
+        --n_layer       12 \
+        --n_head        12 \
+        --n_embd        768 \
+        --batch_size    8 \
+        --grad_accum_steps 8 \
         --max_steps        5000 \
-        --time_limit_min   10
+        --time_limit_min   200
