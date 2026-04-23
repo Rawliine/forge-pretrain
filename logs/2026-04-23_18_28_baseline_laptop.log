@@ -1,0 +1,12 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[data] 50 shard(s), 5,000,000,000 tokens total
+step=10 | loss=9.2311 | lr=6.00e-05 | tok/s=11458 | 5720ms/step | elapsed 1.0m | time left 199.0m
+step=20 | loss=8.5411 | lr=1.20e-04 | tok/s=11119 | 5894ms/step | elapsed 2.0m | time left 198.0m
+step=30 | loss=7.6699 | lr=1.80e-04 | tok/s=8636 | 7588ms/step | elapsed 3.0m | time left 197.0m
+step=40 | loss=7.1548 | lr=2.40e-04 | tok/s=7816 | 8385ms/step | elapsed 4.1m | time left 195.9m
+step=50 | loss=6.8353 | lr=3.00e-04 | tok/s=10783 | 6078ms/step | elapsed 5.2m | time left 194.8m
+step=60 | loss=6.7179 | lr=3.60e-04 | tok/s=10466 | 6262ms/step | elapsed 6.3m | time left 193.7m
+step=70 | loss=6.6346 | lr=4.20e-04 | tok/s=10718 | 6115ms/step | elapsed 7.3m | time left 192.7m
+step=80 | loss=6.4797 | lr=4.80e-04 | tok/s=10740 | 6102ms/step | elapsed 8.4m | time left 191.6m
+step=90 | loss=6.3404 | lr=5.40e-04 | tok/s=10778 | 6081ms/step | elapsed 9.4m | time left 190.6m
