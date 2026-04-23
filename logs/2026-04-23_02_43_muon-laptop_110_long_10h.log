@@ -1,0 +1,12 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+step=10 | loss=9.8754 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=11073 | 5919ms/step | elapsed 0.8m | time left 599.2m
+step=20 | loss=8.7755 | lr(muon)=4.00e-03 lr(adam)=6.00e-05 | tok/s=14200 | 4615ms/step | elapsed 1.6m | time left 598.4m
+step=30 | loss=8.2699 | lr(muon)=6.00e-03 lr(adam)=9.00e-05 | tok/s=10111 | 6481ms/step | elapsed 2.5m | time left 597.5m
+step=40 | loss=7.6130 | lr(muon)=8.00e-03 lr(adam)=1.20e-04 | tok/s=13302 | 4927ms/step | elapsed 3.3m | time left 596.7m
+step=50 | loss=7.0611 | lr(muon)=1.00e-02 lr(adam)=1.50e-04 | tok/s=12918 | 5073ms/step | elapsed 4.2m | time left 595.8m
+step=60 | loss=6.7280 | lr(muon)=1.20e-02 lr(adam)=1.80e-04 | tok/s=13064 | 5017ms/step | elapsed 5.1m | time left 594.9m
+step=70 | loss=6.5193 | lr(muon)=1.40e-02 lr(adam)=2.10e-04 | tok/s=12542 | 5225ms/step | elapsed 6.1m | time left 593.9m
+step=80 | loss=6.3361 | lr(muon)=1.60e-02 lr(adam)=2.40e-04 | tok/s=9742 | 6727ms/step | elapsed 7.0m | time left 593.0m

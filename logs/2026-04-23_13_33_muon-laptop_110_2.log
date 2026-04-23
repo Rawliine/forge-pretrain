@@ -1,0 +1,5 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+step=10 | loss=9.8701 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=8672 | 7557ms/step | elapsed 1.3m | time left 198.7m
