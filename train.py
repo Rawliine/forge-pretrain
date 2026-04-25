@@ -159,9 +159,12 @@ def main():
     torch.manual_seed(1337 + rank)
     amp_ctx = torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16) \
               if "cuda" in device else nullcontext()
+    torch.set_float32_matmul_precision('high')
+    torch.backends.cuda.matmul.allow_tf32 = True
 
     # ------------------------------------------------------------------ Model
     model = get_model(asdict(cfg)).to(device)
+    model = torch.compile(model)
     if master:
         n_params = sum(p.numel() for p in model.parameters())
         print(f"[model] {n_params/1e6:.1f}M parameters")

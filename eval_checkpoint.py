@@ -13,7 +13,8 @@ def main():
 
     ckpt = torch.load(args.checkpoint, weights_only=True, map_location="cuda")
     model = get_model(ckpt["config"]).cuda()
-    model.load_state_dict(ckpt["model"])
+    state_dict = {k.removeprefix("_orig_mod."): v for k, v in ckpt["model"].items()}
+    model.load_state_dict(state_dict)
     model.eval()
 
     n_params = sum(p.numel() for p in model.parameters())
