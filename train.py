@@ -157,8 +157,9 @@ def main():
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     torch.manual_seed(1337 + rank)
-    amp_ctx = torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16) \
+    amp_ctx = torch.amp.autocast(device_type="cuda", dtype=torch.float16) \
               if "cuda" in device else nullcontext()
+    scaler = torch.cuda.amp.GradScaler() if "cuda" in device else None
     torch.set_float32_matmul_precision('high')
     torch.backends.cuda.matmul.allow_tf32 = True
 
@@ -231,13 +232,25 @@ def main():
             with sync_ctx, amp_ctx:
                 _, loss = model(x, y)
                 loss    = loss / cfg.grad_accum_steps
-            loss.backward()
+            if scaler is not None:
+                scaler.scale(loss).backward()
+            else:
+                loss.backward()
             accumulated_loss += loss.item()
 
         if cfg.grad_clip > 0:
+            if scaler is not None:
+                scaler.unscale_(muon_opt)
+                scaler.unscale_(adam_opt)
             torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.grad_clip)
-        muon_opt.step()
-        adam_opt.step()
+        
+        if scaler is not None:
+            scaler.step(muon_opt)
+            scaler.step(adam_opt)
+            scaler.update()
+        else:
+            muon_opt.step()
+            adam_opt.step()
         muon_opt.zero_grad(set_to_none=True)
         adam_opt.zero_grad(set_to_none=True)
 

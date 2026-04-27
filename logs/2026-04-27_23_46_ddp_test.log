@@ -1,0 +1,95 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+[rank0]:[E427 23:47:24.388102098 ProcessGroupNCCL.cpp:612] [Rank 0] Collective WorkNCCL(SeqNum=6, OpType=ALLREDUCE, NumelIn=110925312, NumelOut=110925312, Timeout(ms)=600000) raised the following async exception: NCCL error: remote process exited or there was a network error, NCCL version 2.28.9
+ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+Last error:
+socketProgress: Connection closed by remote peer DESKTOP-DSAD8OJ<55370>
+Exception raised from checkForNCCLErrorsInternal at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2770 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7fc006b7205d in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::checkForNCCLErrorsInternal(std::shared_ptr<c10d::NCCLComm>&) + 0x380 (0x7fbf124398a0 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::WorkNCCL::checkAndSetException() + 0x80 (0x7fbf12440c40 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0xa84 (0x7fbf124459d4 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7fbf12447af7 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: <unknown function> + 0xdf0e6 (0x7fc0276ea0e6 in /home/rawline/miniconda3/envs/forge-pascal/bin/../lib/libstdc++.so.6)
+frame #6: <unknown function> + 0x9697a (0x7fc02a29697a in /usr/lib/libc.so.6)
+frame #7: <unknown function> + 0x11a2bc (0x7fc02a31a2bc in /usr/lib/libc.so.6)
+
+[rank0]:[E427 23:47:24.389310891 ProcessGroupNCCL.cpp:2303] [PG ID 0 PG GUID 0(default_pg) Rank 0]  failure detected by watchdog at work sequence id: 6 PG status: last enqueued work: 6, last completed work: 5
+[rank0]:[E427 23:47:24.389535073 ProcessGroupNCCL.cpp:736] Stack trace of the failed collective not found, potentially because FlightRecorder is disabled. You can enable it by setting TORCH_NCCL_TRACE_BUFFER_SIZE to a non-zero value.
+[rank0]:[E427 23:47:24.389568615 ProcessGroupNCCL.cpp:2636] [PG ID 0 PG GUID 0(default_pg) Rank 0] First PG on this rank to signal dumping.
+[rank0]:[E427 23:47:25.767483229 ProcessGroupNCCL.cpp:1914] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 6, last completed NCCL work: 5.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E427 23:47:25.767636096 ProcessGroupNCCL.cpp:1628] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0
+[rank0]:[E427 23:48:25.911403290 ProcessGroupNCCL.cpp:750] [Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E427 23:48:25.911415699 ProcessGroupNCCL.cpp:764] [Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E427 23:48:25.911441266 ProcessGroupNCCL.cpp:2119] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: NCCL error: remote process exited or there was a network error, NCCL version 2.28.9
+ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+Last error:
+socketProgress: Connection closed by remote peer DESKTOP-DSAD8OJ<55370>
+Exception raised from checkForNCCLErrorsInternal at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2770 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7fc006b7205d in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::checkForNCCLErrorsInternal(std::shared_ptr<c10d::NCCLComm>&) + 0x380 (0x7fbf124398a0 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::WorkNCCL::checkAndSetException() + 0x80 (0x7fbf12440c40 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0xa84 (0x7fbf124459d4 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7fbf12447af7 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: <unknown function> + 0xdf0e6 (0x7fc0276ea0e6 in /home/rawline/miniconda3/envs/forge-pascal/bin/../lib/libstdc++.so.6)
+frame #6: <unknown function> + 0x9697a (0x7fc02a29697a in /usr/lib/libc.so.6)
+frame #7: <unknown function> + 0x11a2bc (0x7fc02a31a2bc in /usr/lib/libc.so.6)
+
+terminate called after throwing an instance of 'c10::DistBackendError'
+  what():  [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: NCCL error: remote process exited or there was a network error, NCCL version 2.28.9
+ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+Last error:
+socketProgress: Connection closed by remote peer DESKTOP-DSAD8OJ<55370>
+Exception raised from checkForNCCLErrorsInternal at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2770 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7fc006b7205d in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::checkForNCCLErrorsInternal(std::shared_ptr<c10d::NCCLComm>&) + 0x380 (0x7fbf124398a0 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::WorkNCCL::checkAndSetException() + 0x80 (0x7fbf12440c40 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0xa84 (0x7fbf124459d4 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7fbf12447af7 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: <unknown function> + 0xdf0e6 (0x7fc0276ea0e6 in /home/rawline/miniconda3/envs/forge-pascal/bin/../lib/libstdc++.so.6)
+frame #6: <unknown function> + 0x9697a (0x7fc02a29697a in /usr/lib/libc.so.6)
+frame #7: <unknown function> + 0x11a2bc (0x7fc02a31a2bc in /usr/lib/libc.so.6)
+
+Exception raised from run at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2125 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7fc006b7205d in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xed3359 (0x7fbf11ed3359 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: <unknown function> + 0xdf0e6 (0x7fc0276ea0e6 in /home/rawline/miniconda3/envs/forge-pascal/bin/../lib/libstdc++.so.6)
+frame #3: <unknown function> + 0x9697a (0x7fc02a29697a in /usr/lib/libc.so.6)
+frame #4: <unknown function> + 0x11a2bc (0x7fc02a31a2bc in /usr/lib/libc.so.6)
+
+E0427 23:48:30.178000 74624 site-packages/torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: -6) local_rank: 0 (pid: 74716) of binary: /home/rawline/miniconda3/envs/forge-pascal/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+======================================================
+train.py FAILED
+------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-27_23:48:30
+  host      : rawline-M16
+  rank      : 0 (local_rank: 0)
+  exitcode  : -6 (pid: 74716)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 74716
+======================================================

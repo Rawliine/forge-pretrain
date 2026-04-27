@@ -1,0 +1,53 @@
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/rawline/forge-pretrain/train.py", line 272, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/rawline/forge-pretrain/train.py", line 173, in main
+[rank0]:     model = DDP(model, device_ids=[local_rank])
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 825, in __init__
+[rank0]:     _verify_param_shape_across_processes(self.process_group, parameters)
+[rank0]:   File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/utils.py", line 288, in _verify_param_shape_across_processes
+[rank0]:     return dist._verify_params_across_processes(process_group, tensors, logger)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/NCCLUtils.hpp:317, unhandled system error (run with NCCL_DEBUG=INFO for details), NCCL version 2.21.5
+[rank0]: ncclSystemError: System call (e.g. socket, malloc) or external library call failed or device error. 
+[rank0]: Last error:
+[rank0]: socketPollConnect: Connect to 192.168.1.236<33647> returned 113(No route to host) errno 115(Operation now in progress)
+[rank0]:[W427 23:08:00.081589086 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+E0427 23:08:00.997000 49011 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 49500) of binary: /home/rawline/miniconda3/envs/forge-pascal/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 923, in <module>
+    main()
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-27_23:08:00
+  host      : rawline-M16
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 49500)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+ERROR conda.cli.main_run:execute(142): `conda run bash -c NNODES=2 NODE_RANK=0 MASTER_ADDR=192.168.1.28 MASTER_PORT=29501 GPUS=0 ./run_local.sh` failed. (See above for error)
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters

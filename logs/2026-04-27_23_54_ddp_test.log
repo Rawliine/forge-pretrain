@@ -1,0 +1,23 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+[rank0]:[E427 23:55:07.151937141 ProcessGroupNCCL.cpp:612] [Rank 0] Collective WorkNCCL(SeqNum=6, OpType=ALLREDUCE, NumelIn=110925312, NumelOut=110925312, Timeout(ms)=600000) raised the following async exception: NCCL error: remote process exited or there was a network error, NCCL version 2.28.9
+ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+Last error:
+socketProgress: Connection closed by remote peer DESKTOP-DSAD8OJ<38492>
+Exception raised from checkForNCCLErrorsInternal at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2770 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f21db37205d in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::checkForNCCLErrorsInternal(std::shared_ptr<c10d::NCCLComm>&) + 0x380 (0x7f20e6c398a0 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::WorkNCCL::checkAndSetException() + 0x80 (0x7f20e6c40c40 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0xa84 (0x7f20e6c459d4 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7f20e6c47af7 in /home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: <unknown function> + 0xdf0e6 (0x7f21fbeea0e6 in /home/rawline/miniconda3/envs/forge-pascal/bin/../lib/libstdc++.so.6)
+frame #6: <unknown function> + 0x9697a (0x7f21fea9697a in /usr/lib/libc.so.6)
+frame #7: <unknown function> + 0x11a2bc (0x7f21feb1a2bc in /usr/lib/libc.so.6)
+
+[rank0]:[E427 23:55:07.153149496 ProcessGroupNCCL.cpp:2303] [PG ID 0 PG GUID 0(default_pg) Rank 0]  failure detected by watchdog at work sequence id: 6 PG status: last enqueued work: 6, last completed work: 5
+[rank0]:[E427 23:55:07.153386157 ProcessGroupNCCL.cpp:736] Stack trace of the failed collective not found, potentially because FlightRecorder is disabled. You can enable it by setting TORCH_NCCL_TRACE_BUFFER_SIZE to a non-zero value.
+[rank0]:[E427 23:55:07.153430204 ProcessGroupNCCL.cpp:2636] [PG ID 0 PG GUID 0(default_pg) Rank 0] First PG on this rank to signal dumping.
+[rank0]:[E427 23:55:08.133422499 ProcessGroupNCCL.cpp:1914] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 6, last completed NCCL work: 5.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E427 23:55:08.133576091 ProcessGroupNCCL.cpp:1628] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0

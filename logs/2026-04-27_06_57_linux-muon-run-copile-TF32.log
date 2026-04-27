@@ -1,0 +1,39 @@
+Master: localhost:29501  |  Nodes: 1  |  GPUs: 0 (1)  |  Rank: 0
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+In file included from /home/rawline/miniconda3/envs/forge/include/python3.14/Python.h:14,
+                 from /tmp/tmpssrx1cy2/cuda_utils.c:7:
+/home/rawline/miniconda3/envs/forge/include/python3.14/pyconfig.h:2007:9: warning: ‘_POSIX_C_SOURCE’ redefined
+ 2007 | #define _POSIX_C_SOURCE 200809L
+      |         ^~~~~~~~~~~~~~~
+In file included from /usr/include/bits/libc-header-start.h:33,
+                 from /usr/include/stdlib.h:26,
+                 from /home/rawline/miniconda3/envs/forge/lib/python3.14/site-packages/triton/backends/nvidia/include/cuda.h:56,
+                 from /tmp/tmpssrx1cy2/cuda_utils.c:1:
+/usr/include/features.h:319:10: note: this is the location of the previous definition
+  319 | # define _POSIX_C_SOURCE        202405L
+      |          ^~~~~~~~~~~~~~~
+[rank0]:W0427 06:57:19.637000 46615 site-packages/torch/_inductor/utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode
+step=10 | loss=9.8855 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=31849 | 2058ms/step | elapsed 0.5m | time left 199.5m
+step=20 | loss=8.8401 | lr(muon)=4.00e-03 lr(adam)=6.00e-05 | tok/s=28758 | 2279ms/step | elapsed 0.9m | time left 199.1m
+step=30 | loss=8.2187 | lr(muon)=6.00e-03 lr(adam)=9.00e-05 | tok/s=26610 | 2463ms/step | elapsed 1.3m | time left 198.7m
+step=40 | loss=7.6346 | lr(muon)=8.00e-03 lr(adam)=1.20e-04 | tok/s=24418 | 2684ms/step | elapsed 1.7m | time left 198.3m
+step=50 | loss=7.1026 | lr(muon)=1.00e-02 lr(adam)=1.50e-04 | tok/s=22594 | 2901ms/step | elapsed 2.2m | time left 197.8m
+step=60 | loss=6.6988 | lr(muon)=1.20e-02 lr(adam)=1.80e-04 | tok/s=21771 | 3010ms/step | elapsed 2.7m | time left 197.3m
+step=70 | loss=6.5370 | lr(muon)=1.40e-02 lr(adam)=2.10e-04 | tok/s=21225 | 3088ms/step | elapsed 3.2m | time left 196.8m
+step=80 | loss=6.4035 | lr(muon)=1.60e-02 lr(adam)=2.40e-04 | tok/s=20821 | 3148ms/step | elapsed 3.7m | time left 196.3m
+step=90 | loss=6.2334 | lr(muon)=1.80e-02 lr(adam)=2.70e-04 | tok/s=20567 | 3186ms/step | elapsed 4.3m | time left 195.7m
+step=100 | loss=6.0756 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=20020 | 3274ms/step | elapsed 4.8m | time left 195.2m
+step=110 | loss=6.0151 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19980 | 3280ms/step | elapsed 5.4m | time left 194.6m
+step=120 | loss=5.9710 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19613 | 3341ms/step | elapsed 5.9m | time left 194.1m
+step=130 | loss=5.8974 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19604 | 3343ms/step | elapsed 6.5m | time left 193.5m
+step=140 | loss=5.8639 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19562 | 3350ms/step | elapsed 7.1m | time left 192.9m
+step=150 | loss=5.8082 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19438 | 3372ms/step | elapsed 7.7m | time left 192.3m
+step=160 | loss=5.6675 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=18058 | 3629ms/step | elapsed 8.2m | time left 191.8m
+step=170 | loss=5.6143 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=19326 | 3391ms/step | elapsed 8.8m | time left 191.2m
+step=180 | loss=5.5768 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=18963 | 3456ms/step | elapsed 9.4m | time left 190.6m
+step=190 | loss=5.6457 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=18412 | 3559ms/step | elapsed 10.0m | time left 190.0m
+step=200 | loss=5.4824 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=18400 | 3562ms/step | elapsed 10.6m | time left 189.4m
+step=210 | loss=5.4076 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=17537 | 3737ms/step | elapsed 11.2m | time left 188.8m
+step=220 | loss=5.4074 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=17300 | 3788ms/step | elapsed 11.9m | time left 188.1m

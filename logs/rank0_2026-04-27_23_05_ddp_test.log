@@ -1,0 +1,2 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+/home/rawline/miniconda3/bin/python: Error while finding module specification for 'torch.distributed.run' (ModuleNotFoundError: No module named 'torch')
