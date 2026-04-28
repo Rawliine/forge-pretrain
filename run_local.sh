@@ -34,7 +34,7 @@ python -m torch.distributed.run \
         --n_layer       12 \
         --n_head        12 \
         --n_embd        768 \
-        --batch_size    8 \
-        --grad_accum_steps 8 \
+        --batch_size    4 \
+        --grad_accum_steps 16 \
         --max_steps        5000 \
         --time_limit_min   200

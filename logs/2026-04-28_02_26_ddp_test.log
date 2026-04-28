@@ -1,0 +1,24 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+/home/rawline/forge-pretrain/train.py:162: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler() if "cuda" in device else None
+[model] 110.9M parameters
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+[rank0]:W0428 02:27:04.824000 113099 site-packages/torch/_inductor/utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode
+step=10 | loss=9.8726 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=1579 | 83022ms/step | elapsed 14.3m | time left 185.7m
+step=20 | loss=8.8094 | lr(muon)=4.00e-03 lr(adam)=6.00e-05 | tok/s=1609 | 81483ms/step | elapsed 28.0m | time left 172.0m
+step=30 | loss=8.2126 | lr(muon)=6.00e-03 lr(adam)=9.00e-05 | tok/s=1616 | 81132ms/step | elapsed 41.7m | time left 158.3m
+step=40 | loss=7.6218 | lr(muon)=8.00e-03 lr(adam)=1.20e-04 | tok/s=1633 | 80268ms/step | elapsed 55.2m | time left 144.8m
+step=50 | loss=7.0100 | lr(muon)=1.00e-02 lr(adam)=1.50e-04 | tok/s=1619 | 80979ms/step | elapsed 68.7m | time left 131.3m
+step=60 | loss=6.6617 | lr(muon)=1.20e-02 lr(adam)=1.80e-04 | tok/s=1599 | 81957ms/step | elapsed 82.3m | time left 117.7m
+step=70 | loss=6.4245 | lr(muon)=1.40e-02 lr(adam)=2.10e-04 | tok/s=1632 | 80321ms/step | elapsed 95.9m | time left 104.1m
+step=80 | loss=6.2488 | lr(muon)=1.60e-02 lr(adam)=2.40e-04 | tok/s=1612 | 81328ms/step | elapsed 109.6m | time left 90.4m
+step=90 | loss=6.1188 | lr(muon)=1.80e-02 lr(adam)=2.70e-04 | tok/s=1614 | 81195ms/step | elapsed 123.2m | time left 76.8m
+step=100 | loss=5.9218 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1596 | 82106ms/step | elapsed 136.9m | time left 63.1m
+step=110 | loss=5.8368 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1568 | 83592ms/step | elapsed 150.7m | time left 49.3m
+step=120 | loss=5.8115 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1614 | 81229ms/step | elapsed 164.3m | time left 35.7m
+step=130 | loss=5.6033 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1616 | 81114ms/step | elapsed 178.0m | time left 22.0m
+step=140 | loss=5.6957 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1591 | 82402ms/step | elapsed 191.7m | time left 8.3m
+
+[time] 201.4 min elapsed — time limit reached.
+[ckpt] saved → checkpoint.pt  (step 147)
