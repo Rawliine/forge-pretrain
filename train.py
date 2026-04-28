@@ -165,7 +165,11 @@ def main():
 
     # ------------------------------------------------------------------ Model
     model = get_model(asdict(cfg)).to(device)
-    model = torch.compile(model)
+    if torch.cuda.is_available() and torch.cuda.get_device_capability()[0] >= 7:
+        model = torch.compile(model)
+    elif master:
+        print(f"[compile] skipping torch.compile (device capability "
+              f"{torch.cuda.get_device_capability()} < 7.0)")
     if master:
         n_params = sum(p.numel() for p in model.parameters())
         print(f"[model] {n_params/1e6:.1f}M parameters")
