@@ -170,6 +170,12 @@ def main():
     elif master:
         print(f"[compile] skipping torch.compile (device capability "
               f"{torch.cuda.get_device_capability()} < 7.0)")
+    if "cuda" in device:
+        torch.cuda.synchronize(device)
+        m_params = torch.cuda.memory_allocated() / 1e6
+        print(f"[mem] rank={rank} after model load: {m_params:.0f} MB  (≈ M_params)")
+    else:
+        m_params = 0.0
     if master:
         n_params = sum(p.numel() for p in model.parameters())
         print(f"[model] {n_params/1e6:.1f}M parameters")
@@ -202,11 +208,16 @@ def main():
     dataset = BinDataset(cfg.data_dir, cfg.seq_len, cfg.token_dtype)
 
     # ------------------------------------------------------------------ Train
+    WARMUP_STEPS = 10  # steps before steady-state memory snapshot
+
     step        = 0
     train_start = time.time()
     model.train()
     muon_opt.zero_grad()
     adam_opt.zero_grad()
+
+    # Per-phase memory collected on the first post-warmup step
+    _mem_snapshot_done = False
 
     while step < cfg.max_steps:
 
@@ -227,19 +238,63 @@ def main():
         for pg in adam_opt.param_groups:
             pg["lr"] = get_lr(step, cfg, cfg.adam_lr)
 
+        do_mem = "cuda" in device and step == WARMUP_STEPS and not _mem_snapshot_done
+
+        # ── CUDA event timers ────────────────────────────────────────────────
+        if "cuda" in device:
+            fwd_start = torch.cuda.Event(enable_timing=True)
+            fwd_end   = torch.cuda.Event(enable_timing=True)
+            bwd_end   = torch.cuda.Event(enable_timing=True)
+            opt_end   = torch.cuda.Event(enable_timing=True)
+
         # Gradient accumulation
         accumulated_loss = 0.0
         for micro_step in range(cfg.grad_accum_steps):
             x, y     = dataset.get_batch(cfg.batch_size, device)
             sync_ctx = model.no_sync() if (ddp and micro_step < cfg.grad_accum_steps - 1) \
                        else nullcontext()
+
+            is_last_micro = micro_step == cfg.grad_accum_steps - 1
+
+            if do_mem and micro_step == 0:
+                torch.cuda.reset_peak_memory_stats(device)
+
+            if "cuda" in device and is_last_micro:
+                fwd_start.record()
+
             with sync_ctx, amp_ctx:
                 _, loss = model(x, y)
                 loss    = loss / cfg.grad_accum_steps
+
+            if "cuda" in device and is_last_micro:
+                fwd_end.record()
+
+            if do_mem and is_last_micro:
+                torch.cuda.synchronize(device)
+                m_fwd_peak = torch.cuda.max_memory_allocated(device) / 1e6
+                m_fwd_live = torch.cuda.memory_allocated(device) / 1e6
+                print(f"[mem] rank={rank} after fwd: peak={m_fwd_peak:.0f} "
+                      f"live={m_fwd_live:.0f} MB  "
+                      f"activations≈{m_fwd_live - m_params:.0f} MB")
+                torch.cuda.reset_peak_memory_stats(device)
+
             if scaler is not None:
                 scaler.scale(loss).backward()
             else:
                 loss.backward()
+
+            if "cuda" in device and is_last_micro:
+                bwd_end.record()
+
+            if do_mem and is_last_micro:
+                torch.cuda.synchronize(device)
+                m_bwd_peak = torch.cuda.max_memory_allocated(device) / 1e6
+                m_bwd_live = torch.cuda.memory_allocated(device) / 1e6
+                print(f"[mem] rank={rank} after bwd: peak={m_bwd_peak:.0f} "
+                      f"live={m_bwd_live:.0f} MB  "
+                      f"gradients≈{m_bwd_live - m_params:.0f} MB")
+                torch.cuda.reset_peak_memory_stats(device)
+
             accumulated_loss += loss.item()
 
         if cfg.grad_clip > 0:
@@ -247,7 +302,7 @@ def main():
                 scaler.unscale_(muon_opt)
                 scaler.unscale_(adam_opt)
             torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.grad_clip)
-        
+
         if scaler is not None:
             scaler.step(muon_opt)
             scaler.step(adam_opt)
@@ -258,11 +313,36 @@ def main():
         muon_opt.zero_grad(set_to_none=True)
         adam_opt.zero_grad(set_to_none=True)
 
+        if "cuda" in device:
+            opt_end.record()
+
+        if do_mem:
+            torch.cuda.synchronize(device)
+            m_opt_peak = torch.cuda.max_memory_allocated(device) / 1e6
+            m_opt_live = torch.cuda.memory_allocated(device) / 1e6
+            m_reserved = torch.cuda.max_memory_reserved(device) / 1e6
+            print(f"[mem] rank={rank} after opt.step: peak={m_opt_peak:.0f} "
+                  f"live={m_opt_live:.0f} MB  "
+                  f"opt_state≈{m_opt_live - m_params:.0f} MB  "
+                  f"reserved≈{m_reserved:.0f} MB (≈nvidia-smi)")
+            _mem_snapshot_done = True
+
         step_time = time.time() - step_start
         step += 1
 
+        if "cuda" in device:
+            torch.cuda.synchronize(device)
+            t_fwd = fwd_start.elapsed_time(fwd_end)
+            t_bwd = fwd_end.elapsed_time(bwd_end)
+            t_opt = bwd_end.elapsed_time(opt_end)
+        else:
+            t_fwd = t_bwd = t_opt = float("nan")
+
+        tok_per_rank  = cfg.batch_size * cfg.grad_accum_steps * cfg.seq_len
+        tok_s_rank    = tok_per_rank / step_time
+
         if master and step % 10 == 0:
-            tok_per_step  = cfg.batch_size * cfg.grad_accum_steps * cfg.seq_len
+            tok_per_step  = tok_per_rank
             if ddp:
                 tok_per_step *= dist.get_world_size()
             tok_s         = tok_per_step / step_time
@@ -271,8 +351,9 @@ def main():
             print(f"step={step} | loss={accumulated_loss:.4f} | "
                   f"lr(muon)={get_lr(step, cfg, cfg.muon_lr):.2e} "
                   f"lr(adam)={get_lr(step, cfg, cfg.adam_lr):.2e} | "
-                  f"tok/s={tok_s:.0f} | "
-                  f"{step_time*1000:.0f}ms/step | "
+                  f"tok/s={tok_s:.0f} (rank tok/s={tok_s_rank:.0f}) | "
+                  f"{step_time*1000:.0f}ms/step "
+                  f"[fwd={t_fwd:.0f} bwd={t_bwd:.0f} opt={t_opt:.0f} ms] | "
                   f"elapsed {elapsed_total/60:.1f}m | "
                   f"time left {remaining/60:.1f}m")
 
