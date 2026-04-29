@@ -1,0 +1,30 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+/home/rawline/forge-pretrain/train.py:164: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler() if "cuda" in device else None
+[mem] rank=0 after model load: 444 MB  (≈ M_params)
+[model] 110.9M parameters
+[ddp] fp16 gradient compression enabled
+[optim] Muon: 72 params, AdamW: 52 params
+[data] 50 shard(s), 5,000,000,000 tokens total
+step=10 | loss=9.8750 | lr(muon)=2.00e-03 lr(adam)=3.00e-05 | tok/s=1700 (rank tok/s=850) | 77092ms/step [fwd=42 bwd=74828 opt=98 ms] | elapsed 13.3m | time left 186.7m
+[mem] rank=0 after fwd: peak=4407 live=3819 MB  activations≈3376 MB
+[mem] rank=0 after bwd: peak=4407 live=2403 MB  gradients≈1959 MB
+[mem] rank=0 after opt.step: peak=2507 live=1946 MB  opt_state≈1503 MB  reserved≈4771 MB (≈nvidia-smi)
+step=20 | loss=8.7963 | lr(muon)=4.00e-03 lr(adam)=6.00e-05 | tok/s=1857 (rank tok/s=929) | 70570ms/step [fwd=42 bwd=68283 opt=98 ms] | elapsed 26.4m | time left 173.6m
+step=30 | loss=8.1836 | lr(muon)=6.00e-03 lr(adam)=9.00e-05 | tok/s=1927 (rank tok/s=964) | 68010ms/step [fwd=42 bwd=65732 opt=98 ms] | elapsed 38.0m | time left 162.0m
+step=40 | loss=7.5595 | lr(muon)=8.00e-03 lr(adam)=1.20e-04 | tok/s=1927 (rank tok/s=964) | 68011ms/step [fwd=42 bwd=65750 opt=98 ms] | elapsed 49.5m | time left 150.5m
+step=50 | loss=7.0413 | lr(muon)=1.00e-02 lr(adam)=1.50e-04 | tok/s=1579 (rank tok/s=790) | 82987ms/step [fwd=42 bwd=80749 opt=98 ms] | elapsed 62.1m | time left 137.9m
+step=60 | loss=6.6345 | lr(muon)=1.20e-02 lr(adam)=1.80e-04 | tok/s=1735 (rank tok/s=867) | 75563ms/step [fwd=43 bwd=73285 opt=98 ms] | elapsed 75.0m | time left 125.0m
+step=70 | loss=6.4173 | lr(muon)=1.40e-02 lr(adam)=2.10e-04 | tok/s=1928 (rank tok/s=964) | 67992ms/step [fwd=43 bwd=65722 opt=98 ms] | elapsed 87.7m | time left 112.3m
+step=80 | loss=6.2257 | lr(muon)=1.60e-02 lr(adam)=2.40e-04 | tok/s=1912 (rank tok/s=956) | 68567ms/step [fwd=44 bwd=66273 opt=98 ms] | elapsed 99.1m | time left 100.9m
+step=90 | loss=6.0635 | lr(muon)=1.80e-02 lr(adam)=2.70e-04 | tok/s=1907 (rank tok/s=954) | 68721ms/step [fwd=46 bwd=66406 opt=98 ms] | elapsed 110.5m | time left 89.5m
+step=100 | loss=5.9482 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1827 (rank tok/s=913) | 71752ms/step [fwd=45 bwd=69447 opt=98 ms] | elapsed 122.1m | time left 77.9m
+step=110 | loss=5.8409 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1914 (rank tok/s=957) | 68487ms/step [fwd=49 bwd=66190 opt=98 ms] | elapsed 133.6m | time left 66.4m
+step=120 | loss=5.7536 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1946 (rank tok/s=973) | 67365ms/step [fwd=49 bwd=65059 opt=98 ms] | elapsed 145.4m | time left 54.6m
+step=130 | loss=5.7085 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1949 (rank tok/s=974) | 67252ms/step [fwd=46 bwd=64941 opt=98 ms] | elapsed 157.1m | time left 42.9m
+step=140 | loss=5.6575 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1932 (rank tok/s=966) | 67858ms/step [fwd=49 bwd=65505 opt=98 ms] | elapsed 168.4m | time left 31.6m
+step=150 | loss=5.5298 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1983 (rank tok/s=991) | 66111ms/step [fwd=48 bwd=63764 opt=98 ms] | elapsed 179.7m | time left 20.3m
+step=160 | loss=5.4766 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1887 (rank tok/s=943) | 69468ms/step [fwd=48 bwd=67099 opt=98 ms] | elapsed 190.9m | time left 9.1m
+
+[time] 200.9 min elapsed — time limit reached.
+[ckpt] saved → checkpoint.pt  (step 169)
