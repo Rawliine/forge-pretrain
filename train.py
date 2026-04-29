@@ -127,6 +127,8 @@ def main():
     parser.add_argument("--grad_accum_steps",  type=int,   default=4)
     parser.add_argument("--max_steps",         type=int,   default=10_000)
     parser.add_argument("--time_limit_min",    type=float, default=10.0)
+    parser.add_argument("--fp16_compress",     action="store_true",
+                        help="FP16 gradient compression for DDP AllReduce")
     args = parser.parse_args()
 
     cfg = Config(
@@ -182,6 +184,11 @@ def main():
 
     if ddp:
         model = DDP(model, device_ids=[local_rank])
+        if args.fp16_compress:
+            from torch.distributed.algorithms.ddp_comm_hooks.default_hooks import fp16_compress_hook
+            model.register_comm_hook(state=None, hook=fp16_compress_hook)
+            if master:
+                print("[ddp] fp16 gradient compression enabled")
 
     # ------------------------------------------------------------------ Optimizer
     # Muon for 2D hidden-layer weights; AdamW for embeddings, LN, biases, lm_head

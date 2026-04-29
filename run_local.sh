@@ -37,4 +37,5 @@ python -m torch.distributed.run \
         --batch_size    4 \
         --grad_accum_steps 16 \
         --max_steps        5000 \
-        --time_limit_min   200
+        --time_limit_min   200 \
+        ${FP16_COMPRESS:+--fp16_compress}
