@@ -23,3 +23,17 @@ step=110 | loss=6.0391 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1364 (rank 
 step=120 | loss=5.9304 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1364 (rank tok/s=1364) | 48052ms/step [fwd=779 bwd=2191 opt=584 ms] | elapsed 97.5m | time left 102.5m
 step=130 | loss=5.8793 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1366 (rank tok/s=1366) | 47976ms/step [fwd=780 bwd=2178 opt=588 ms] | elapsed 105.5m | time left 94.5m
 step=140 | loss=5.8148 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1364 (rank tok/s=1364) | 48062ms/step [fwd=784 bwd=2198 opt=583 ms] | elapsed 113.5m | time left 86.5m
+step=150 | loss=5.7801 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1364 (rank tok/s=1364) | 48035ms/step [fwd=779 bwd=2193 opt=588 ms] | elapsed 121.5m | time left 78.5m
+step=160 | loss=5.7109 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1389 (rank tok/s=1389) | 47167ms/step [fwd=766 bwd=2143 opt=575 ms] | elapsed 129.4m | time left 70.6m
+step=170 | loss=5.6665 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1390 (rank tok/s=1390) | 47155ms/step [fwd=765 bwd=2143 opt=573 ms] | elapsed 137.3m | time left 62.7m
+step=180 | loss=5.5637 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1389 (rank tok/s=1389) | 47174ms/step [fwd=763 bwd=2144 opt=573 ms] | elapsed 145.2m | time left 54.8m
+step=190 | loss=5.5050 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1387 (rank tok/s=1387) | 47239ms/step [fwd=766 bwd=2154 opt=574 ms] | elapsed 153.0m | time left 47.0m
+step=200 | loss=5.5364 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1390 (rank tok/s=1390) | 47147ms/step [fwd=766 bwd=2142 opt=575 ms] | elapsed 160.9m | time left 39.1m
+step=210 | loss=5.4162 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1391 (rank tok/s=1391) | 47130ms/step [fwd=761 bwd=2171 opt=573 ms] | elapsed 168.7m | time left 31.3m
+step=220 | loss=5.4232 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1393 (rank tok/s=1393) | 47044ms/step [fwd=761 bwd=2154 opt=573 ms] | elapsed 176.6m | time left 23.4m
+step=230 | loss=5.2480 | lr(muon)=2.00e-02 lr(adam)=3.00e-04 | tok/s=1393 (rank tok/s=1393) | 47043ms/step [fwd=763 bwd=2150 opt=573 ms] | elapsed 184.4m | time left 15.6m
+step=240 | loss=5.2913 | lr(muon)=2.00e-02 lr(adam)=2.99e-04 | tok/s=1391 (rank tok/s=1391) | 47118ms/step [fwd=761 bwd=2164 opt=574 ms] | elapsed 192.3m | time left 7.7m
+step=250 | loss=5.1989 | lr(muon)=2.00e-02 lr(adam)=2.99e-04 | tok/s=1392 (rank tok/s=1392) | 47089ms/step [fwd=762 bwd=2164 opt=574 ms] | elapsed 200.1m | time left 0.0m
+
+[time] 200.1 min elapsed — time limit reached.
+[ckpt] saved → checkpoint.pt  (step 250)
