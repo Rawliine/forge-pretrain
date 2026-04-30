@@ -1,0 +1,18 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+[model] 136.1M parameters
+[compile] torch.compile disabled (use --compile to enable)
+[mem] rank=0 after model load (pre-FSDP, full replica): 544 MB
+[mem] rank=0 after FSDP wrap (sharded params): 273 MB  (≈ full / world_size=2)
+[optim] AdamW over 125 parameter tensors
+[data] 50 shard(s), 5,000,000,000 tokens total
+step=10 | loss=9.3511 | lr(adam)=3.00e-05 | tok/s=204 (rank tok/s=102) | 641345ms/step [fwd=11849 bwd=28309 opt=33 ms] | elapsed 107.3m | time left 92.7m
+[mem] rank=0 after fwd: peak=3529 live=2978 MB  activations+all-gather≈2704 MB
+[mem] rank=0 after bwd: peak=3529 live=1383 MB  sharded grads≈1109 MB
+[mem] rank=0 after opt.step: peak=1655 live=1383 MB  sharded opt_state≈1109 MB  reserved≈4586 MB (≈nvidia-smi)
+
+[time] 208.6 min elapsed — time limit reached.
+/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:821: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  prev_state_dict_settings = FullyShardedDataParallel.set_state_dict_type(
+/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:828: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  FullyShardedDataParallel.set_state_dict_type(
+[ckpt] saved → checkpoint.pt  (step 19)
