@@ -81,7 +81,9 @@ class GPT(nn.Module):
             ln_f = nn.LayerNorm(n_embd),
         ))
         self.lm_head = nn.Linear(n_embd, vocab_size, bias=False)
-        self.transformer.wte.weight = self.lm_head.weight  # weight tying
+        # NOTE: weight tying intentionally disabled for FSDP compatibility.
+        # FSDP wraps modules independently and breaks shared-parameter aliases;
+        # keeping the tie would silently produce incorrect gradients.
 
         self.apply(self._init_weights)
         for pn, p in self.named_parameters():

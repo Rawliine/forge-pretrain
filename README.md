@@ -64,5 +64,28 @@ GPUS=0,1,2,3
 
 **Results** are tracked in `results.md` — one row per run, auto-created on first use.
 
+### Heterogeneous-GPU runs (e.g. RTX 3070 Ti + GTX 1070 Ti)
+
+`train.py` uses FSDP `FULL_SHARD` with a `MixedPrecision(param=fp16, reduce=fp32, buffer=fp16)`
+policy, which works on Pascal (no BF16). When mixing GPU generations on a single host,
+NCCL's default P2P/IB transports often fail to negotiate — set the following env vars
+before launching `torchrun`:
+
+```bash
+export NCCL_P2P_DISABLE=1
+export NCCL_IB_DISABLE=1
+export NCCL_DEBUG=INFO        # optional, helpful for first run
+torchrun --nproc_per_node=2 train.py
+```
+
+`torch.compile` is **off by default** in this setup. It must produce identical module
+graphs on every rank or FSDP's flat-param layout diverges; pass `--compile` only when
+all GPUs have compute capability >= 7.0 (the script enforces this with an all-reduce
+and silently disables compile if any rank fails the check).
+
+The slower GPU dictates step time — expect the 1070 Ti to bottleneck a 3070 Ti pair.
+This is intentional for the experiment: the goal is to study sharded-comm patterns,
+not maximize throughput.
+
 ### Eval comparability
 `experiment.sh` always evaluates on the same shard (`chunk_0049.bin`) with the same fixed settings (50 batches, seq_len 1024), so **all runs in `results.md` are directly comparable**. Do not override `--seq_len` or `--max_batches` when running through `experiment.sh` — it would break comparability. If you need a quick sanity check with different settings, run `eval_checkpoint.py` directly in the terminal instead.

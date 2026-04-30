@@ -1,0 +1,45 @@
+Master: 192.168.1.28:29501  |  Nodes: 2  |  GPUs: 0 (1)  |  Rank: 0
+[model] 136.1M parameters
+[compile] torch.compile disabled (use --compile to enable)
+[mem] rank=0 after model load (pre-FSDP, full replica): 544 MB
+[mem] rank=0 after FSDP wrap (sharded params): 273 MB  (≈ full / world_size=2)
+[optim] AdamW over 125 parameter tensors
+[data] 50 shard(s), 5,000,000,000 tokens total
+[rank0]:[E430 02:29:06.340520697 ProcessGroupNCCL.cpp:1849] [PG ID 0 PG GUID 0(default_pg) Rank 0] Observed flight recorder dump signal from another rank via TCPStore.
+[rank0]:[E430 02:29:06.340777355 ProcessGroupNCCL.cpp:1914] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from  rank 1 and we will try our best to dump the debug info. Last enqueued NCCL work: 3, last completed NCCL work: 2.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E430 02:29:06.340964442 ProcessGroupNCCL.cpp:1628] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0
+[rank0]:[F430 02:37:06.341622190 ProcessGroupNCCL.cpp:1653] [PG ID 0 PG GUID 0(default_pg) Rank 0] [PG ID 0 PG GUID 0(default_pg) Rank 0] Terminating the process after attempting to dump debug info, due to collective timeout or exception.
+E0430 02:37:11.103000 126164 site-packages/torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: -6) local_rank: 0 (pid: 126256) of binary: /home/rawline/miniconda3/envs/forge-pascal/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rawline/miniconda3/envs/forge-pascal/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=======================================================
+train.py FAILED
+-------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+-------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-30_02:37:11
+  host      : rawline-M16
+  rank      : 0 (local_rank: 0)
+  exitcode  : -6 (pid: 126256)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 126256
+=======================================================
